@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import { Button, buttonVariants } from './ui/button';
 import { useModalStore } from '@/lib/useModalStore';
 import { authClient } from '@/lib/auth-client';
+import { ModeToggle } from './ModeToggle';
 
 export default function Header() {
   const { openSignIn, openSearch } = useModalStore();
@@ -28,7 +29,7 @@ export default function Header() {
             <Search />
             Поиск
           </Button>
-          <SunMoon />
+          <ModeToggle />
         </div>
         {!isPending && (
           <>
@@ -39,7 +40,7 @@ export default function Header() {
                 onClick={handleLogOut}
               >
                 <LogOut />
-                <span className='hidden md:inline text-destructive group-hover:text-background/80 transition-colors duration-300'>Выйти</span>
+                <span className='hidden text-hidden md:inline transition-colors duration-300'>Выйти</span>
               </Button>
             ) : (
               <Button className='rounded-full' onClick={openSignIn}>

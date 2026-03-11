@@ -7,6 +7,7 @@ import SignInModal from "@/components/modals/SignInModal";
 import SearchModal from "@/components/modals/SerchModal";
 import { Toaster } from "@/components/ui/sonner";
 import QueryProvider from "@/providers/QueryProviders";
+import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,18 +32,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='ru'>
+    <html lang='ru' suppressHydrationWarning>
       <body
         className={`${inter.variable} ${montserrat.variable} antialiased w-full`}
       >
-        <QueryProvider>
-          <Header />
-          <main className='mx-auto mt-30 w-9/10'>{children}</main>
-          <SignInModal />
-          <SearchModal />
-          <Toaster />
-          <Footer />
-        </QueryProvider>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <QueryProvider>
+            <Header />
+            <main className='mx-auto mt-30 w-9/10'>{children}</main>
+            <SignInModal />
+            <SearchModal />
+            <Toaster />
+            <Footer />
+          </QueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

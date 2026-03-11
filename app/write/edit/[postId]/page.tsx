@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import axios from 'axios';
+import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
@@ -25,14 +26,16 @@ export default function EditPage() {
       const [previewImage, setPreviewImage] = useState('');
       const [loading, setLoading] = useState(true);
       const { postId } = useParams();
-    const router = useRouter();
+  const router = useRouter();
+  const { theme } = useTheme();
 
       const config = useMemo(
         () => ({
           placeholder: 'Start writing your article...',
+          theme: theme || 'light',
         }),
-        [],
-    );
+        [theme],
+      );
     const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
       e.preventDefault();
 

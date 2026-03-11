@@ -10,7 +10,7 @@ import { useMemo, useRef, useState } from 'react';
 
 import axios from 'axios';
 import { toast } from 'sonner';
-import { NextResponse } from 'next/server';
+import { useTheme } from 'next-themes';
 
 const JoditEditor = dynamic(() => import('jodit-react'), {
   ssr: false,
@@ -23,12 +23,14 @@ export default function WritePage() {
   const [description, setDescription] = useState('');
   const [coverImage, setCoverImage] = useState<null | File>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { theme } = useTheme();
 
   const config = useMemo(
     () => ({
       placeholder: 'Начните создавать вашу статью',
+      theme: theme || 'light',
     }),
-    [],
+    [theme],
   );
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
