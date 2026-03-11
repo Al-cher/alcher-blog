@@ -45,7 +45,7 @@ export default function Navbar() {
                   'flex justify-center items-center shadow-sm px-2 rounded-full h-7 whitespace-nowrap',
                   isActive && 'bg-primary text-foreground/80',
                   !isActive &&
-                    'text-foreground/80 hover:bg-primary transition-colors duration-300',
+                    'text-foreground/80 hover:bg-card transition-colors duration-300',
                 )}
               >
                 Создать блог
