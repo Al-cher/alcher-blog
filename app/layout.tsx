@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SignInModal from "@/components/modals/SignInModal";
+import SearchModal from "@/components/modals/SerchModal";
+import { Toaster } from "@/components/ui/sonner";
+import QueryProvider from "@/providers/QueryProviders";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["cyrillic"],
+  weight: ['300', '400', '600', '700']
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["cyrillic"],
+  weight: ["400", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -23,11 +31,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='ru'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${montserrat.variable} antialiased w-full`}
       >
-        {children}
+        <QueryProvider>
+          <Header />
+          <main className='mx-auto mt-30 w-9/10'>{children}</main>
+          <SignInModal />
+          <SearchModal />
+          <Toaster />
+          <Footer />
+        </QueryProvider>
       </body>
     </html>
   );
