@@ -4,7 +4,7 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { Post } from "@/types/post";
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://alcher-blog-delta.vercel.app/';
 
 export default async function RecentPosts() {
    const res = await fetch(`${baseUrl}/api/posts/recent`, {
