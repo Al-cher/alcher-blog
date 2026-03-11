@@ -3,8 +3,7 @@
 import PostCardSkeleton from "@/components/sceletons/PostCardSceletons";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useInfinitePosts } from "@/custom-hooks/usePosts";
-import { Post } from "@/types/post";
-import { LoaderCircle, LucideArrowRight, } from "lucide-react";
+import { LucideArrowRight, } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 

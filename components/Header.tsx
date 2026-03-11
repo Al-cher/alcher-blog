@@ -1,6 +1,6 @@
 'use client';
 
-import { LogOut, Search, SquareArrowRightEnter, SunMoon } from 'lucide-react';
+import { LogOut, Search, SquareArrowRightEnter } from 'lucide-react';
 import Logo from './Logo';
 import Navbar from './Navbar';
 import { Button, buttonVariants } from './ui/button';

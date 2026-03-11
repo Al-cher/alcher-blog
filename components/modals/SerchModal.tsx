@@ -3,7 +3,6 @@
 import { useModalStore } from "@/lib/useModalStore";
 import Modal from "./Modal";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 
 import { searchPosts } from "@/services/post";
 import { useState } from "react";
