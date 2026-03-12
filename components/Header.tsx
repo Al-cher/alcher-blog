@@ -27,7 +27,7 @@ export default function Header() {
             className={buttonVariants({ variant: 'outline' })}
           >
             <Search />
-            Поиск
+            <span className='hidden md:inline'>Поиск</span>
           </Button>
           <ModeToggle />
         </div>
@@ -40,7 +40,9 @@ export default function Header() {
                 onClick={handleLogOut}
               >
                 <LogOut />
-                <span className='hidden text-hidden md:inline transition-colors duration-300'>Выйти</span>
+                <span className='hidden text-hidden md:inline transition-colors duration-300'>
+                  Выйти
+                </span>
               </Button>
             ) : (
               <Button className='rounded-full' onClick={openSignIn}>
